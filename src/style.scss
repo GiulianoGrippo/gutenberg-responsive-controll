@@ -1,0 +1,36 @@
+@import "@wordpress/base-styles/mixins";
+@import "@wordpress/base-styles/breakpoints";
+
+.wp-block-group,
+.wp-block-column {
+	&.has-responsive-settings {
+		&.has-responsive-display-small {
+			@include break-medium() {
+				display: none;
+			}
+		}
+		&.has-responsive-display-small-medium {
+			@include break-xlarge() {
+				display: none;
+			}
+		}
+		&.has-responsive-display-medium {
+			@media (max-width: #{ ($break-medium - 1) }) {
+				display: none;
+			}
+			@include break-xlarge() {
+				display: none;
+			}
+		}
+		&.has-responsive-display-medium-large {
+			@media (max-width: #{ ($break-medium - 1) }) {
+				display: none;
+			}
+		}
+		&.has-responsive-display-large {
+			@media (max-width: #{ ($break-xlarge - 1) }) {
+				display: none;
+			}
+		}
+	}
+}
